@@ -134,7 +134,10 @@ jobs:
 
       - name: Check if can use old whl build
         id: use-old-whl
-        uses: pytorch/pytorch/.github/actions/check-old-whl@main
+        uses: ./.github/actions/check-old-whl
+        with:
+          build-environment: ${{ inputs.build-environment }}
+          workflow-name: pull.yml
 
       - name: Calculate docker image
         id: calculate-docker-image
