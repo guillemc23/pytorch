@@ -10,6 +10,9 @@ inputs:
   workflow-id:
     description: Workflow ID
     required: true
+  GITHUB_TOKEN:
+    description: GitHub token
+    required: true
 
 outputs:
   changes:
@@ -25,7 +28,7 @@ runs:
       id: check-file-changes
       shell: bash
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
       run: |
         set -x
         python3 .github/actions/check-old-whl/reuse_old_whl.py --build-environment "${{ inputs.build-environment }}" --workflow-id "${{ inputs.workflow-id }}"
