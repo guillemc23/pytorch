@@ -35,3 +35,4 @@ runs:
         if [ $? -ne 0 ]; then
           echo "changes=true" >> "$GITHUB_OUTPUT"
         fi
+        exit 0
