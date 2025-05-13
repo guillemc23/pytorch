@@ -137,7 +137,7 @@ jobs:
         uses: ./.github/actions/check-old-whl
         with:
           build-environment: ${{ inputs.build-environment }}
-          workflow-name: pull.yml
+          workflow-id: pull.yml
 
       - name: Calculate docker image
         id: calculate-docker-image
