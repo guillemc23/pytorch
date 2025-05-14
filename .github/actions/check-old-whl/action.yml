@@ -32,6 +32,7 @@ runs:
       run: |
         set -x
         python3 .github/actions/check-old-whl/reuse_old_whl.py --build-environment "${{ inputs.build-environment }}" --workflow-id "${{ inputs.workflow-id }}"
+        echo "Checking for changes in the wheel file"
         if [ $? -ne 0 ]; then
           echo "changes=true" >> "$GITHUB_OUTPUT"
         fi
