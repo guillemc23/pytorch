@@ -125,8 +125,7 @@ def unzip_artifact_and_replace_files():
                 file_path = os.path.join(root, file)
                 zip_ref.write(file_path, os.path.relpath(file_path, "/tmp/artifacts"))
     # move artifact to the current directory
-    os.rename("/tmp/artifacts.zip", "artifacts.zip")
-
+    shutil.copyfile("/tmp/artifacts.zip", "artifacts.zip")
     return None
 
 
