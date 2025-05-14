@@ -15,7 +15,7 @@ inputs:
     required: true
 
 outputs:
-  changes:
+  build:
     description: Whether the wheel is reused or not
     value: ${{ steps.check-file-changes.outputs.changes }}
 
@@ -33,7 +33,7 @@ runs:
         set -x
         python3 .github/actions/check-old-whl/reuse_old_whl.py --build-environment "${{ inputs.build-environment }}" --workflow-id "${{ inputs.workflow-id }}"
         echo "Checking for changes in the wheel file"
-        if [ $? -ne 0 ]; then
-          echo "changes=true" >> "$GITHUB_OUTPUT"
+        if [ $? -ne 0 ];
+          echo "build=true" >> "$GITHUB_OUTPUT"
         fi
         exit 0
