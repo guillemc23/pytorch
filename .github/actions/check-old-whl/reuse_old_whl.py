@@ -142,5 +142,6 @@ if __name__ == "__main__":
     args = parse_args()
     can_use_old_whl = check_changed_files()
     if not find_old_whl(args.workflow_id, args.build_environment):
-        exit(1)
+        print("No old whl found.")
+        sys.exit(1)
     unzip_artifact_and_replace_files()
